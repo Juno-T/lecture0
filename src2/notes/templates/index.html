@@ -32,11 +32,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3">
+            <div class="col-lg-6">
                 <form action="{{ url_for('index') }}" method="post">
                     <input type="text" name="note" placeholder="Enter Note Here">
-                    <button name="submit_button" value="my">Add to my note</button>
-                    <button name="submit_button" value="global">Add to Global note</button>
+                    <button name="submit_button" class="btn btn-primary" value="my">Add to my note</button>
+                    <button name="submit_button" class="btn btn-dark" value="global">Add to Global note</button>
                 </form>
             </div>
         </div>
