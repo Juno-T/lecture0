@@ -1,19 +1,46 @@
 {% extends "layout.html" %}
 
 {% block heading %}
-    Notes
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                My Notes
+            </div>
+            <div class="col-3">
+                Global Notes
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <ul>
+                    {% for note in my_notes %}
+                        <li>{{ note }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-3">
+                <ul>
+                    {% for note in global_notes %}
+                        <li>{{ note }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <form action="{{ url_for('index') }}" method="post">
+                    <input type="text" name="note" placeholder="Enter Note Here">
+                    <button name="submit_button" value="my">Add to my note</button>
+                    <button name="submit_button" value="global">Add to Global note</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <ul>
-        {% for note in notes %}
-            <li>{{ note }}</li>
-        {% endfor %}
-    </ul>
 
-    <form action="{{ url_for('index') }}" method="post">
-        <input type="text" name="note" placeholder="Enter Note Here">
-        <button>Add Note</button>
-    </form>
 {% endblock %}

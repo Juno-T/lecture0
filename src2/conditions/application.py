@@ -6,6 +6,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    ex = 1 if False else 2 
     now = datetime.datetime.now()
     new_year = now.month == 1 and now.day == 1
+    new_year = True
     return render_template("index.html", new_year=new_year)
